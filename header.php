@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -9,7 +8,8 @@
         bloginfo('name');
     ?>
     </title>
-    <link rel="stylesheet" href="/css/master.css" href="<?php bolginfo('template_url'); ?>/style.css" charset="utf-8">
+    <link rel="stylesheet"  href="<?php bloginfo('template_directory'); ?>/style.css" charset="utf-8">
     <?php wp_head(); ?>
   </head>
 </html>
+<body>

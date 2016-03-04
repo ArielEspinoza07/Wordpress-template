@@ -1,0 +1,107 @@
+/*
+Theme Name: TesThemeWorpress
+Author: Ariel Espinoza
+Description: First Wordpress Template.
+Version: 1.0
+*/
+
+
+/**
+ * Table of Contents:
+ *
+ * 1.0 - Body
+ */
+
+/**
+*Body
+*
+*/
+body{
+   margin: 0;
+   padding: 0;
+   background-color:rgb(9, 7, 8);
+   color: white;
+ }
+
+.site-content{
+   width: 100%;
+}
+
+.side-navbar{
+  width: 20%;
+  display: inline-block;
+  margin: 0;
+}
+
+section{
+  width: 65%;
+  display: inline-block;
+  background: white;
+  color: black;
+  margin: 0 2.5%;
+}
+
+.row{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.col-md-12{
+  width: 95%;
+  margin: 2.5px;
+  display: inline-block;
+}
+
+.col-md-6{
+  width: 45%;
+  display: inline-block;
+}
+
+.col-md-4{
+  width: 25%;
+  display: inline-block;
+}
+
+p{
+  margin: 0;
+}
+
+h2{
+  padding: 0;
+  margin: 1em;
+}
+
+a{
+  color: black;
+  font-size: 25px;
+   text-decoration: none;
+}
+
+a:hover{
+   color: red;
+}
+
+.side-navbar > nav ul {
+  list-style-type: none;
+  margin:0;
+  padding:0;
+}
+
+.side-navbar > nav ul li{
+  display: inline-block;
+  width: 100%;
+  height: 50px;
+  margin: 2px 0;
+  text-align: center;
+}
+
+.side-navbar > nav ul li a{
+  color: white;
+  text-decoration: none;
+}
+
+.side-navbar > nav ul li a:hover{
+  color: red;
+
+}
