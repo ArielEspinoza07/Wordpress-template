@@ -11,10 +11,11 @@ class wopStart
   public function init()
   {
     # code...
-    $this->theme_version = '0.0.1'; //TODO jbrown:jbrown Implement proper theme version detection
+    $this->theme_version = '0.0.1'; 
     $this->suffix = ( defined('SCRIPT_DEBUG') AND SCRIPT_DEBUG ) ? '' : '.min';
     $this->register_sidebars();
     $this->register_styles();
+    $this->register_scripts();
     $this->register_menus();
     $this->enqueue_styles();
     $this->enqueue_scripts();
@@ -60,12 +61,28 @@ class wopStart
         '3.3.6',
         'screen'
       );
+      wp_register_style(
+        'wdp-normalize',
+        "https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize$suffix.css",
+        array(),
+        '3.0.3',
+        'screen'
+      );
+      wp_register_style(
+        'wdp-color',
+        get_stylesheet_directory_uri()."/css/wdp_color.css",
+        array(),
+        '0.0.1',
+        'screen'
+      );
   }
 
   public function enqueue_styles()
   {
       # code...
       wp_enqueue_style('wdp-bootstrap');
+      wp_enqueue_style('wdp-normalize');
+      wp_enqueue_style('wdp-color');
   }
 
   public function register_scripts()
@@ -98,6 +115,16 @@ class wopStart
     {
         $filtered = str_replace( ' href', '  async="async" href', $tag );
         echo $filtered;
+    }
+    if('wdp-normalize' === $handle)
+    {
+      $filtered = str_replace('href','async="async" href',$tag);
+      echo $filtered;
+    }
+    if('wdp-color' === $handle)
+    {
+      $filtered = str_replace('href','async="async" href',$tag);
+      echo $filtered;
     }
   }
 
