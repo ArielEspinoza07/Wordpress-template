@@ -1,36 +1,32 @@
 <?php
-// add feed links to header
-if (function_exists('add_theme_support')) {
-	add_theme_support( 'automatic-feed-links' );
-} else {
-	return;
+add_action( 'init', 'wop_temp_star' );
+add_action( 'admin_init', 'wdp_admin_init');
+
+require_once(get_template_directory().'/wopStart.php');
+
+function wop_temp_star()
+{
+	# code...
+	$wpinit = new wopStart();
+	$wpinit->init();
 }
 
-register_nav_menus( array(
-  'primary'   => __( 'Top primary menu', 'Test' ),
-  'secondary' => __( 'Secondary menu in left sidebar', 'Test' ),
-) );
+function mybreborn_apply_script_filters($tag, $handle)
+{
+	$wpinit = new wopStart();
+	$wpinit->defer_scripts($tag, $handle);
+}
 
-  function test_widgets_init() {
-    require get_template_directory() . '/inc/widgets.php';
-  	register_widget( 'Test_Widget' );
-  	register_sidebar( array(
-  		'name' => __( 'sidebar-1', 'Test' ),
-  		'id' => 'sidebar-1',
-  		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-  		'after_widget' => "</aside>",
-  		'before_title' => '<div class="widget-title">',
-  		'after_title' => '</div>',
-  	) );
-  	register_sidebar( array(
-  		'name' => __( 'sidebar-1', 'Test' ),
-  		'id' => 'sidebar-2',
-  		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-  		'after_widget' => "</aside>",
-  		'before_title' => '<div class="widget-title">',
-  		'after_title' => '</div>',
-  	) );
+function mybreborn_apply_style_filters($tag, $handle)
+{
+	$wpinit = new wopStart();
+	$wpinit->defer_styles($tag, $handle);
+}
 
-  }
-  add_action( 'widgets_init', 'test_widgets_init' );
+function wdp_admin_init()
+{
+	# code...
+	wp_deregister_style( 'wdp-bootstrap' );
+}
+
 ?>
