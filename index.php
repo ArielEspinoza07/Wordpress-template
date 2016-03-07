@@ -13,44 +13,45 @@
  */
   get_header();
 ?>
-  <div class="container">
+
+<header class="container-fluid">
+  <?php
+    get_sidebar();
+  ?>
+</header>
+<section class="container-fluid">
+  <div class="row">
     <?php
-      get_sidebar();
-    ?>
-    <section class="container-fluid">
-      <div class="row">
-        <?php
-            if (have_posts()) :
-              while (have_posts()) : the_post();
-                  ?>
-                  <div class="col-md-6">
-                    <div class="panel panel-info ">
-                      <div class="panel-heading text-center">
-                          <h2 class="panel-title"><?php the_title(); ?></h2>
+        if (have_posts()) :
+          while (have_posts()) : the_post();
+              ?>
+              <div class="col-md-6">
+                <div class="panel panel-info ">
+                  <div class="panel-heading text-center">
+                      <h2 class="panel-title"><?php the_title(); ?></h2>
+                  </div>
+                  <div class="panel-body">
+                    <p><?php the_content(); ?></p>
+                  </div>
+                  <div class="panel-footer">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <?php the_author(); ?>
                       </div>
-                      <div class="panel-body">
-                        <p><?php the_content(); ?></p>
+                      <div class="col-md-4">
+                        <?php the_time(); ?>
                       </div>
-                      <div class="panel-footer">
-                        <div class="row">
-                          <div class="col-md-4">
-                            <?php the_author(); ?>
-                          </div>
-                          <div class="col-md-4">
-                            <?php the_tags(); ?>
-                          </div>
-                          <div class="col-md-4">
-                            <?php wp_link_pages(); ?>
-                          </div>
-                        </div>
+                      <div class="col-md-4">
+                        <?php edit_post_link('edit', '<p>', '</p>'); ?>
                       </div>
                     </div>
                   </div>
-              <?php endwhile;
-            endif;
-        ?>
-      </div>
-    </section>
+                </div>
+              </div>
+          <?php endwhile;
+        endif;
+    ?>
   </div>
+</section>
 
 <?php get_footer(); ?>
