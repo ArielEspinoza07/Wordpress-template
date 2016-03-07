@@ -15,7 +15,7 @@ register_nav_menus( array(
     require get_template_directory() . '/inc/widgets.php';
   	register_widget( 'Test_Widget' );
   	register_sidebar( array(
-  		'name' => __( 'Footer Sidebar', 'Test' ),
+  		'name' => __( 'sidebar-1', 'Test' ),
   		'id' => 'sidebar-1',
   		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
   		'after_widget' => "</aside>",
@@ -23,7 +23,7 @@ register_nav_menus( array(
   		'after_title' => '</div>',
   	) );
   	register_sidebar( array(
-  		'name' => __( 'Side Sidebar', 'Test' ),
+  		'name' => __( 'sidebar-1', 'Test' ),
   		'id' => 'sidebar-2',
   		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
   		'after_widget' => "</aside>",

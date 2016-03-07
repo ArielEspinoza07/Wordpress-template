@@ -15,7 +15,6 @@
 ?>
   <div class="site-content">
     <?php
-      get_sidebar( 'content' );
       get_sidebar();
     ?>
     <section>
